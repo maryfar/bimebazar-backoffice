@@ -1,32 +1,44 @@
 import { useParams } from "react-router-dom";
-import Arrow from "@/assets/images/arrow.svg";
+
+import { useAuthStore } from "@/store/auth.store";
+
+import TaskHeader from "@/components/task-details/task-header";
+import InsuranceInfoCard from "@/components/task-details/insurance-info-card";
+import ActionsCard from "@/components/task-details/actions-card";
+import ImagesGallery from "@/components/task-details/images-gallery";
+
 import { mockTasks } from "@/mocks/tasks";
-import { TASK_STATUS_STYLES } from "@/constants/task-status";
 
 function TaskDetailsPage() {
   const { id } = useParams();
-  const taskDetails = mockTasks.find((task) => task.id === Number(id));
+
+  const user = useAuthStore((state) => state.user);
+
+  const isAdmin = user?.role === "admin";
+
+  const task = mockTasks.find((item) => item.id === Number(id));
+
+  if (!task) {
+    return <div className="p-8">تسک پیدا نشد</div>;
+  }
+
   return (
-    <div className="min-h-screen p-8 flex flex-col gap-8">
-      <div>
-        <div className="flex gap-2 items-center justify-start">
-          <div className="p-3 rounded-xl bg-gray-200  ">
-            <img src={Arrow} alt="back" className="w-4 h-5" />
-          </div>
-          <h2 className=" text-xs font-semibold text-gray-800">
-            {" "}
-            {taskDetails?.id || id} #
-          </h2>
-          {taskDetails?.status && (
-            <span
-              className={`
-      inline-flex rounded-2xl px-3 py-1 text-xs font-semibold
-      ${TASK_STATUS_STYLES[taskDetails.status]}
-    `}
-            >
-              {taskDetails.status}
-            </span>
+    <div className="space-y-6 p-8">
+      <TaskHeader task={task} />
+
+      <div className="grid grid-cols-12 gap-4">
+        <div className="col-span-8">
+          <InsuranceInfoCard />
+
+          {isAdmin && (
+            <div className="mt-4">
+              <ImagesGallery />
+            </div>
           )}
+        </div>
+
+        <div className="col-span-4">
+          <ActionsCard />
         </div>
       </div>
     </div>

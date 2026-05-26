@@ -42,7 +42,7 @@ function TasksTable({
   };
 
   return (
-    <div className="mx-auto w-full max-w-6xl rounded-2xl border border-gray-300 bg-white shadow-lg">
+    <div className="mx-auto w-full max-w-6xl rounded-tl-2xl rounded-tr-2xl border border-gray-300 bg-white ">
       <div className="flex items-center justify-between gap-3 p-4">
         <div className="flex gap-3 text-sm">
           {readyToAssigned !== undefined && (
@@ -77,7 +77,7 @@ function TasksTable({
 
       {/* table */}
 
-      <div className="overflow-hidden border border-gray-200 bg-white">
+      <div className="overflow-hidden border-t border-gray-200 bg-white">
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
