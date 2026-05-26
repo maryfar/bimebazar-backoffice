@@ -1,0 +1,212 @@
+import { useMemo } from "react";
+
+import { useSearchParams } from "react-router-dom";
+
+import GrayIndicator from "@/assets/images/indicator.svg";
+import YellowIndicator from "@/assets/images/yellow.svg";
+
+import type {
+  SortDirection,
+  TaskStatus,
+  TasksTableProps,
+} from "@/types/task.types";
+
+function TasksTable({
+  data,
+  totalAssigned,
+  readyToAssigned,
+  onRowClick,
+}: TasksTableProps) {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const sortDirection = (searchParams.get("sort") as SortDirection) || null;
+
+  const sortedData = useMemo(() => {
+    if (!sortDirection) return data;
+
+    return [...data].sort((a, b) => {
+      return sortDirection === "asc" ? a.id - b.id : b.id - a.id;
+    });
+  }, [data, sortDirection]);
+
+  const handleSort = (direction: SortDirection) => {
+    if (sortDirection === direction) {
+      searchParams.delete("sort");
+
+      setSearchParams(searchParams);
+
+      return;
+    }
+
+    searchParams.set("sort", direction!);
+
+    setSearchParams(searchParams);
+  };
+
+  const getStatusBadge = (status: TaskStatus) => {
+    const styles = {
+      باز: "bg-yellow-100 text-yellow-900",
+
+      بسته: "bg-green-100 text-green-900",
+
+      "لغو شده": "bg-gray-100 text-gray-800",
+    };
+
+    return styles[status] || styles.بسته;
+  };
+
+  return (
+    <div className="mx-auto w-full max-w-6xl rounded-2xl border border-gray-300 bg-white shadow-lg">
+      <div className="flex items-center justify-between gap-3 p-4">
+        <div className="flex gap-3 text-sm">
+          {readyToAssigned !== undefined && (
+            <div className="flex items-center gap-2">
+              <span className="text-[13px] font-semibold">آماده ارجاع</span>
+
+              <span className="rounded-2xl bg-gray-200 px-3 py-1 font-medium">
+                +{readyToAssigned}
+              </span>
+            </div>
+          )}
+
+          {totalAssigned !== undefined && (
+            <div className="flex items-center gap-2 rounded-xl bg-gray-100 px-2 py-1">
+              <span className="text-[13px] font-semibold">ارجاع داده شده</span>
+
+              <span className="rounded-2xl bg-gray-200 px-3 py-1 font-medium">
+                {totalAssigned}
+              </span>
+            </div>
+          )}
+
+          <div className="flex items-center gap-2">
+            <span className="text-[13px] font-semibold">وظیفه‌های من</span>
+
+            <span className="rounded-2xl bg-gray-200 px-3 py-1 font-medium">
+              {data.length}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* table */}
+
+      <div className="overflow-hidden border border-gray-200 bg-white">
+        <div className="overflow-x-auto">
+          <table className="min-w-full divide-y divide-gray-200">
+            <thead className="bg-gray-50">
+              <tr>
+                <th className="w-32 px-6 py-4 text-right text-xs font-bold tracking-wider text-gray-600">
+                  <div className="flex items-center justify-between gap-2">
+                    <span>شماره</span>
+
+                    <div className="flex flex-col gap-0.5">
+                      <button
+                        onClick={() => handleSort("asc")}
+                        className={
+                          sortDirection === "asc"
+                            ? "text-blue-600"
+                            : "text-gray-400"
+                        }
+                      >
+                        ▲
+                      </button>
+
+                      <button
+                        onClick={() => handleSort("desc")}
+                        className={
+                          sortDirection === "desc"
+                            ? "text-blue-600"
+                            : "text-gray-400"
+                        }
+                      >
+                        ▼
+                      </button>
+                    </div>
+                  </div>
+                </th>
+
+                <th className="px-6 py-4 text-right text-xs font-bold text-gray-600">
+                  کارشناس
+                </th>
+
+                <th className="px-6 py-4 text-right text-xs font-bold text-gray-600">
+                  وضعیت
+                </th>
+
+                <th className="px-6 py-4 text-right text-xs font-bold text-gray-600">
+                  زمان ارجاع
+                </th>
+
+                <th className="px-6 py-4 text-right text-xs font-bold text-gray-600">
+                  تاریخ ایجاد وظیفه
+                </th>
+
+                <th className="px-6 py-4 text-right text-xs font-bold text-gray-600">
+                  زیر وضعیت
+                </th>
+              </tr>
+            </thead>
+
+            <tbody className="divide-y divide-gray-100 bg-white">
+              {sortedData.map((task, idx) => (
+                <tr
+                  key={task.id}
+                  onClick={() => onRowClick?.(task)}
+                  className={`cursor-pointer transition-colors hover:bg-gray-50 ${
+                    idx % 2 === 0 ? "bg-white" : "bg-gray-50/50"
+                  }`}
+                >
+                  <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
+                    {task.id}
+                  </td>
+
+                  <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">
+                    {task.expert}
+                  </td>
+
+                  <td className="whitespace-nowrap px-6 py-4">
+                    <span
+                      className={`inline-flex rounded-2xl px-2 py-1 text-xs font-medium ${getStatusBadge(
+                        task.status
+                      )}`}
+                    >
+                      {task.status}
+                    </span>
+                  </td>
+
+                  <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">
+                    {task.assignedAt}
+                  </td>
+
+                  <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">
+                    {task.createdAt}
+                  </td>
+
+                  <td className="whitespace-nowrap px-6 py-4 text-sm font-semibold text-gray-600">
+                    <div className="flex w-fit items-center gap-1 rounded-2xl bg-gray-200 px-3 py-2">
+                      <img
+                        src={
+                          task.subStatus === "نیاز به تغییر شرکت بیمه‌گر"
+                            ? YellowIndicator
+                            : GrayIndicator
+                        }
+                        width={8}
+                        height={8}
+                        alt=""
+                      />
+
+                      <span>{task.subStatus}</span>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default TasksTable;

@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useAuthStore } from "@/store/auth.store";
 
 import { loginSchema, type LoginFormData } from "./schema";
+import { DEFAULT_ROUTE_BY_ROLE } from "@/router/default-routes";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -31,11 +32,10 @@ function LoginPage() {
       return;
     }
 
-    if (data.mobile === "09121111111") {
-      navigate("/tasks");
-    } else {
-      navigate("/tasks/my-tasks");
-    }
+    const user = useAuthStore.getState().user;
+
+    if (!user) return;
+    navigate(DEFAULT_ROUTE_BY_ROLE[user.role]);
   };
 
   return (

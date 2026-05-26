@@ -22,9 +22,7 @@ function Sidebar() {
                 <div
                   className={clsx(
                     "flex items-center gap-4 rounded-xl py-3 px-4",
-                    isActive
-                      ? "bg-black text-white"
-                      : "text-gray-700 hover:bg-gray-100"
+                    isActive ? "bg-gray-100" : "text-gray-700 hover:bg-gray-100"
                   )}
                 >
                   <img src={item.icon} alt={item.label} className="h-5 w-5" />
