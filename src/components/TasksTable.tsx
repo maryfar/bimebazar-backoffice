@@ -5,11 +5,8 @@ import { useSearchParams } from "react-router-dom";
 import GrayIndicator from "@/assets/images/indicator.svg";
 import YellowIndicator from "@/assets/images/yellow.svg";
 
-import type {
-  SortDirection,
-  TaskStatus,
-  TasksTableProps,
-} from "@/types/task.types";
+import type { SortDirection, TasksTableProps } from "@/types/task.types";
+import { TASK_STATUS_STYLES } from "@/constants/task-status";
 
 function TasksTable({
   data,
@@ -41,18 +38,6 @@ function TasksTable({
     searchParams.set("sort", direction!);
 
     setSearchParams(searchParams);
-  };
-
-  const getStatusBadge = (status: TaskStatus) => {
-    const styles = {
-      باز: "bg-yellow-100 text-yellow-900",
-
-      بسته: "bg-green-100 text-green-900",
-
-      "لغو شده": "bg-gray-100 text-gray-800",
-    };
-
-    return styles[status] || styles.بسته;
   };
 
   return (
@@ -167,9 +152,9 @@ function TasksTable({
 
                   <td className="whitespace-nowrap px-6 py-4">
                     <span
-                      className={`inline-flex rounded-2xl px-2 py-1 text-xs font-medium ${getStatusBadge(
-                        task.status
-                      )}`}
+                      className={`inline-flex rounded-2xl px-2 py-1 text-xs font-medium ${
+                        TASK_STATUS_STYLES[task.status]
+                      }`}
                     >
                       {task.status}
                     </span>
