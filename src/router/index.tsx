@@ -1,9 +1,14 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 
+import ProtectedRoute from "@/components/guards/protected-route";
+import RoleGuard from "@/components/guards/role-guard";
+
 import AuthLayout from "@/layouts/auth-layout";
 import DashboardLayout from "@/layouts/dashboard-layout";
 
 import LoginPage from "@/pages/login";
+import TasksPage from "@/pages/tasks";
+import TaskDetailsPage from "@/pages/task-details";
 
 export const router = createBrowserRouter([
   {
@@ -22,7 +27,39 @@ export const router = createBrowserRouter([
   },
 
   {
-    element: <DashboardLayout />,
-    children: [],
+    element: <ProtectedRoute />,
+    children: [
+      {
+        element: <DashboardLayout />,
+        children: [
+          {
+            path: "/tasks/:id",
+            element: <TaskDetailsPage />,
+          },
+
+          {
+            element: <RoleGuard allowedRoles={["admin"]} />,
+
+            children: [
+              {
+                path: "/tasks",
+                element: <TasksPage />,
+              },
+            ],
+          },
+
+          {
+            element: <RoleGuard allowedRoles={["user"]} />,
+
+            children: [
+              {
+                path: "/tasks/my-tasks",
+                element: <TasksPage />,
+              },
+            ],
+          },
+        ],
+      },
+    ],
   },
 ]);
