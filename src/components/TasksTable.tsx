@@ -7,6 +7,7 @@ import YellowIndicator from "@/assets/images/yellow.svg";
 
 import type { SortDirection, TasksTableProps } from "@/types/task.types";
 import { TASK_STATUS_STYLES } from "@/constants/task-status";
+import SortIcon from "./icons/sort-icon";
 
 function TasksTable({
   data,
@@ -48,7 +49,7 @@ function TasksTable({
             <div className="flex items-center gap-2">
               <span className="text-[13px] font-semibold">آماده ارجاع</span>
 
-              <span className="rounded-2xl bg-gray-200 px-3 py-1 font-medium">
+              <span className="rounded-2xl bg-gray-200 px-3 py-1 text-[11px] font-semibold">
                 +{readyToAssigned}
               </span>
             </div>
@@ -58,7 +59,7 @@ function TasksTable({
             <div className="flex items-center gap-2 rounded-xl bg-gray-100 px-2 py-1">
               <span className="text-[13px] font-semibold">ارجاع داده شده</span>
 
-              <span className="rounded-2xl bg-gray-200 px-3 py-1 font-medium">
+              <span className="rounded-2xl bg-gray-200 px-3 py-1 text-[11px] font-semibold">
                 {totalAssigned}
               </span>
             </div>
@@ -67,7 +68,7 @@ function TasksTable({
           <div className="flex items-center gap-2">
             <span className="text-[13px] font-semibold">وظیفه‌های من</span>
 
-            <span className="rounded-2xl bg-gray-200 px-3 py-1 font-medium">
+            <span className="rounded-2xl bg-gray-200 px-3 py-1 text-[11px] font-semibold">
               {data.length}
             </span>
           </div>
@@ -82,41 +83,32 @@ function TasksTable({
             <thead className="bg-gray-50">
               <tr>
                 <th className="w-32 px-6 py-4 text-right text-xs font-bold tracking-wider text-gray-600">
-                  <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center  gap-2">
                     <span>شماره</span>
 
                     <div className="flex flex-col gap-0.5">
-                      <button
-                        onClick={() => handleSort("asc")}
-                        className={
-                          sortDirection === "asc"
-                            ? "text-blue-600"
-                            : "text-gray-400"
-                        }
-                      >
-                        ▲
+                      <button onClick={() => handleSort("asc")}>
+                        <SortIcon
+                          direction="asc"
+                          active={sortDirection === "asc"}
+                        />
                       </button>
 
-                      <button
-                        onClick={() => handleSort("desc")}
-                        className={
-                          sortDirection === "desc"
-                            ? "text-blue-600"
-                            : "text-gray-400"
-                        }
-                      >
-                        ▼
+                      <button onClick={() => handleSort("desc")}>
+                        <SortIcon
+                          direction="desc"
+                          active={sortDirection === "desc"}
+                        />
                       </button>
                     </div>
                   </div>
                 </th>
-
                 <th className="px-6 py-4 text-right text-xs font-bold text-gray-600">
-                  کارشناس
+                  وضعیت
                 </th>
 
                 <th className="px-6 py-4 text-right text-xs font-bold text-gray-600">
-                  وضعیت
+                  کارشناس
                 </th>
 
                 <th className="px-6 py-4 text-right text-xs font-bold text-gray-600">
@@ -142,17 +134,12 @@ function TasksTable({
                     idx % 2 === 0 ? "bg-white" : "bg-gray-50/50"
                   }`}
                 >
-                  <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
-                    {task.id}
+                  <td className="whitespace-nowrap px-6 py-4 text-xs font-medium text-gray-900">
+                    #{task.id}
                   </td>
-
-                  <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">
-                    {task.expert}
-                  </td>
-
                   <td className="whitespace-nowrap px-6 py-4">
                     <span
-                      className={`inline-flex rounded-2xl px-2 py-1 text-xs font-medium ${
+                      className={`inline-flex rounded-2xl px-3 py-1 text-xs font-medium ${
                         TASK_STATUS_STYLES[task.status]
                       }`}
                     >
@@ -160,15 +147,19 @@ function TasksTable({
                     </span>
                   </td>
 
-                  <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">
+                  <td className="whitespace-nowrap px-6 py-4 text-xs font-normal text-gray-700">
+                    {task.expert}
+                  </td>
+
+                  <td className="whitespace-nowrap px-6 py-4 text-xs font-normal text-gray-700">
                     {task.assignedAt}
                   </td>
 
-                  <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">
+                  <td className="whitespace-nowrap px-6 py-4 text-xs font-normal text-gray-700">
                     {task.createdAt}
                   </td>
 
-                  <td className="whitespace-nowrap px-6 py-4 text-sm font-semibold text-gray-600">
+                  <td className="whitespace-nowrap px-6 py-4  text-gray-600">
                     <div className="flex w-fit items-center gap-1 rounded-2xl bg-gray-200 px-3 py-2">
                       <img
                         src={
@@ -181,7 +172,9 @@ function TasksTable({
                         alt=""
                       />
 
-                      <span>{task.subStatus}</span>
+                      <span className="text-[11px] font-semibold text-right">
+                        {task.subStatus}
+                      </span>
                     </div>
                   </td>
                 </tr>

@@ -11,16 +11,16 @@ function TaskDetailsPage() {
       <div>
         <div className="flex gap-2 items-center justify-start">
           <div className="p-3 rounded-xl bg-gray-200  ">
-            <img src={Arrow} alt="back" className="w-6 h-6" />
+            <img src={Arrow} alt="back" className="w-4 h-5" />
           </div>
-          <h2 className="text-xl font-bold text-gray-800">
+          <h2 className=" text-xs font-semibold text-gray-800">
             {" "}
             {taskDetails?.id || id} #
           </h2>
           {taskDetails?.status && (
             <span
               className={`
-      inline-flex rounded-2xl px-2 py-1 text-xs font-medium
+      inline-flex rounded-2xl px-3 py-1 text-xs font-semibold
       ${TASK_STATUS_STYLES[taskDetails.status]}
     `}
             >

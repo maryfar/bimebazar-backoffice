@@ -8,10 +8,10 @@ function HeaderActions() {
   return (
     <div className="flex gap-3">
       <div className="rounded-xl bg-[#303030] p-3">
-        <img src={Icon} alt="User Icon" className="h-5 w-5" />
+        <img src={Icon} alt="User Icon" className="h-3.75 w-3.5" />
       </div>
 
-      <div className="rounded-xl bg-[#303030] px-4 py-2">
+      <div className="rounded-xl bg-[#303030] text-xs font-semibold px-4 py-2 flex items-center ">
         <span>{user?.mobile}</span>
       </div>
     </div>
