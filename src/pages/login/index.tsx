@@ -15,6 +15,7 @@ function LoginPage() {
   const login = useAuthStore((state) => state.login);
 
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const {
     register,
@@ -24,18 +25,28 @@ function LoginPage() {
     resolver: zodResolver(loginSchema),
   });
 
-  const onSubmit = (data: LoginFormData) => {
-    const success = login(data);
+  const onSubmit = async (data: LoginFormData) => {
+    setIsLoading(true);
+    setError("");
 
-    if (!success) {
-      setError("اطلاعات ورود نامعتبر است");
-      return;
+    try {
+      const success = login({
+        mobile: data.mobile as string,
+        password: data.password,
+      });
+
+      if (!success) {
+        setError("اطلاعات ورود نامعتبر است");
+        return;
+      }
+
+      const user = useAuthStore.getState().user;
+      if (!user) return;
+
+      navigate(DEFAULT_ROUTE_BY_ROLE[user.role]);
+    } finally {
+      setIsLoading(false);
     }
-
-    const user = useAuthStore.getState().user;
-
-    if (!user) return;
-    navigate(DEFAULT_ROUTE_BY_ROLE[user.role]);
   };
 
   return (
@@ -82,9 +93,10 @@ function LoginPage() {
           <div className="flex items-end justify-end border-t border-gray-300 pt-3">
             <button
               type="submit"
+              disabled={isLoading}
               className=" rounded-xl shadow-gray-200 bg-gray-700 p-2 text-[11px] cursor-pointer font-semibold text-white px-4 shadow-2xl"
             >
-              ورود
+              {isLoading ? "در حال ورود..." : "ورود"}{" "}
             </button>
           </div>
         </form>
