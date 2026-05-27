@@ -8,6 +8,7 @@ import YellowIndicator from "@/assets/images/yellow.svg";
 import type { SortDirection, TasksTableProps } from "@/types/task.types";
 import { TASK_STATUS_STYLES } from "@/constants/task-status";
 import SortIcon from "./icons/sort-icon";
+import { formatSmartDate } from "@/utils/formatRelativeDate";
 
 function TasksTable({
   data,
@@ -152,11 +153,11 @@ function TasksTable({
                   </td>
 
                   <td className="whitespace-nowrap px-6 py-4 text-xs font-normal text-gray-700">
-                    {task.assignedAt}
+                    {formatSmartDate(task.assignedAt)}
                   </td>
 
                   <td className="whitespace-nowrap px-6 py-4 text-xs font-normal text-gray-700">
-                    {task.createdAt}
+                    {formatSmartDate(task.createdAt)}
                   </td>
 
                   <td className="whitespace-nowrap px-6 py-4  text-gray-600">
