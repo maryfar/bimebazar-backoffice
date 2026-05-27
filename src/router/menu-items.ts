@@ -15,7 +15,7 @@ export interface MenuItem {
 export const MENU_ITEMS: MenuItem[] = [
   {
     label: 'خانه',
-    path: '/home',
+    path: '/',
     icon: Home,
     roles: ['admin', 'user'],
   },

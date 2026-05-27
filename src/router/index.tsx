@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 
 import ProtectedRoute from "@/components/guards/protected-route";
 import RoleGuard from "@/components/guards/role-guard";
@@ -12,11 +12,6 @@ import TaskDetailsPage from "@/pages/task-details";
 import ComingSoonPage from "@/pages/coming-soon";
 
 export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Navigate to="/login" replace />,
-  },
-
   {
     element: <AuthLayout />,
     children: [
@@ -34,7 +29,7 @@ export const router = createBrowserRouter([
         element: <DashboardLayout />,
         children: [
           {
-            path: "/home",
+            index: true,
             element: <ComingSoonPage title="خانه" />,
           },
           {
@@ -46,6 +41,7 @@ export const router = createBrowserRouter([
             path: "/customers",
             element: <ComingSoonPage title="مشتریان" />,
           },
+
           {
             path: "/tasks/:id",
             element: <TaskDetailsPage />,
@@ -53,7 +49,6 @@ export const router = createBrowserRouter([
 
           {
             element: <RoleGuard allowedRoles={["admin"]} />,
-
             children: [
               {
                 path: "/tasks",
@@ -64,7 +59,6 @@ export const router = createBrowserRouter([
 
           {
             element: <RoleGuard allowedRoles={["user"]} />,
-
             children: [
               {
                 path: "/tasks/my-tasks",
