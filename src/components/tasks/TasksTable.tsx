@@ -148,8 +148,13 @@ function TasksTable({
                     </span>
                   </td>
 
-                  <td className="whitespace-nowrap px-6 py-4 text-xs font-normal text-gray-700">
-                    {task.expert}
+                  <td className="whitespace-nowrap px-6 py-4 text-xs font-normal text-gray-700 flex items-center gap-2">
+                    <img
+                      src={task.assignedTo.avatar}
+                      alt="avatar"
+                      className="w-10 h-10 rounded-lg"
+                    />
+                    <p> {task.assignedTo.name}</p>
                   </td>
 
                   <td className="whitespace-nowrap px-6 py-4 text-xs font-normal text-gray-700">

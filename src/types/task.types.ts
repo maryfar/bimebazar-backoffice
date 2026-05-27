@@ -7,7 +7,11 @@ export type SortDirection = "asc" | "desc" | null;
 
 export type Task = {
   id: number;
-  expert: string;
+  assignedTo: {
+    id: number;
+    name: string;  
+    avatar: string;
+  };
   status: TaskStatus;
   subStatus: string;
   createdAt: string;
