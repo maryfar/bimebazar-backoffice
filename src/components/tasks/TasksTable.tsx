@@ -7,7 +7,7 @@ import YellowIndicator from "@/assets/images/yellow.svg";
 
 import type { SortDirection, TasksTableProps } from "@/types/task.types";
 import { TASK_STATUS_STYLES } from "@/constants/task-status";
-import SortIcon from "./icons/sort-icon";
+import SortIcon from "../icons/sort-icon";
 import { formatSmartDate } from "@/utils/formatRelativeDate";
 
 function TasksTable({

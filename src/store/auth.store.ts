@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 import { USERS } from '@/mocks/users'
-import type { User } from '@/types/auth'
+import type { User } from '@/types/auth.types'
 
 
 interface LoginData {

@@ -2,7 +2,7 @@ import { Navigate, Outlet } from "react-router-dom";
 
 import { useAuthStore } from "@/store/auth.store";
 
-import type { Role } from "@/types/auth";
+import type { Role } from "@/types/auth.types";
 
 import { DEFAULT_ROUTE_BY_ROLE } from "@/router/default-routes";
 

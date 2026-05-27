@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import TasksTable from "@/components/TasksTable";
+import TasksTable from "@/components/tasks/TasksTable";
 import { useAuthStore } from "@/store/auth.store";
 import { mockTasks } from "@/mocks/tasks";
 import Arrow from "@/assets/images/arrow.svg";

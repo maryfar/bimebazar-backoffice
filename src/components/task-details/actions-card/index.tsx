@@ -1,26 +1,33 @@
-import SectionCard from "@/components/shared/section-card";
-
 function ActionsCard() {
   return (
-    <SectionCard title="اقدامات">
-      <div className="space-y-4">
-        <select className="h-12 w-full rounded-xl border border-gray-300 bg-white px-4 text-sm outline-none">
+    <div className="w-96 rounded-xl  bg-white p-5 shadow-sm">
+      <h1 className="mb-4 font-bold text-[16px]">اقدامات</h1>
+
+      <form className="space-y-3">
+        <select className=" w-full rounded-lg border border-gray-400 bg-white p-2 text-xs outline-none">
           <option>خیر</option>
         </select>
 
-        <select className="h-12 w-full rounded-xl border border-gray-300 bg-white px-4 text-sm outline-none">
-          <option>انتخاب کنید</option>
+        <select className=" w-full rounded-lg border border-gray-400 bg-white p-2 text-xs text-[#616161] outline-none">
+          <option className="text-xs text-[#616161]">انتخاب کنید</option>
         </select>
 
-        <div className="border-t border-gray-200 pt-4">
-          <p className="text-sm text-gray-500">پیش‌فرض خسارت دریافت شده است</p>
+        <div>
+          <p className="text-xs text-[#616161]">
+            پیش‌فرض: خسارت دریافت شده است
+          </p>
         </div>
 
-        <button className="mt-6 rounded-xl bg-black px-5 py-3 text-sm font-medium text-white transition hover:opacity-90">
-          ثبت نهایی
-        </button>
-      </div>
-    </SectionCard>
+        <div className="flex items-end justify-end border-t border-gray-300 pt-3">
+          <button
+            type="submit"
+            className=" rounded-xl shadow-gray-200 bg-gray-700 p-2 text-[11px] cursor-pointer font-semibold text-white px-4 shadow-2xl"
+          >
+            ثبت نهایی
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
 

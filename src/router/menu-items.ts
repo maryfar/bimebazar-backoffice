@@ -1,4 +1,4 @@
-import type { Role } from '@/types/auth'
+import type { Role } from '@/types/auth.types'
 
 import Home from '@/assets/images/home.svg'
 import Task from '@/assets/images/task.svg'

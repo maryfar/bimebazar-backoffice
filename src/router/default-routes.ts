@@ -1,4 +1,4 @@
-import type { Role } from "@/types/auth";
+import type { Role } from "@/types/auth.types";
 
 
 export const DEFAULT_ROUTE_BY_ROLE: Record<

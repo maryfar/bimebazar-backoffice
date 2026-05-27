@@ -8,8 +8,8 @@ function ImageCard({ image, title, large = false }: ImageCardProps) {
   return (
     <div
       className={`
-        overflow-hidden  rounded-2xl border border-gray-200 bg-white
-        ${large ? "w-105" : "w-45"}
+        overflow-hidden  rounded-xl border border-gray-200 bg-white
+        ${large ? "w-96" : "w-33.5"}
       `}
     >
       <img
@@ -17,7 +17,7 @@ function ImageCard({ image, title, large = false }: ImageCardProps) {
         alt={title || "document"}
         className={`
           w-full object-cover
-          ${large ? "h-65" : "h-30"}
+          ${large ? "h-56" : "h-20"}
         `}
       />
 

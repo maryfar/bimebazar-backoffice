@@ -1,44 +1,45 @@
+import InfoRow from "@/components/shared/info-row";
 import SectionCard from "@/components/shared/section-card";
+import type { InsuranceInfo } from "@/types/task-detail.types";
 
-function InsuranceInfoCard() {
+interface Props {
+  data: InsuranceInfo;
+}
+
+function InsuranceInfoCard({ data }: Props) {
   return (
     <SectionCard title="تخفیف بیمه‌نامه قبلی">
       <div className="grid grid-cols-2 gap-10 text-sm">
         <div className="space-y-6">
           <InfoRow
-            label="تغییر مالکیت داشته است؟"
-            value="تغییر مالکیت داشته است"
+            label="تغییر مالکیت داشته است؟
+            (تعویض پلاک)"
+            value={data?.ownershipChanged ? "تغییر مالکیت داشته است" : "ندارد"}
           />
 
-          <InfoRow label="انتقال تخفیفات دارد؟" value="دارد" />
+          <InfoRow
+            label="انتقال تخفیفات دارد؟"
+            value={data?.hasDiscountTransfer ? "دارد" : "ندارد"}
+          />
 
-          <InfoRow label="شماره پلاک" value="۵۵۵ الف ۵۵ ایران ۵۵" />
+          <InfoRow label="شماره پلاک" value={data?.plateNumber} />
         </div>
 
-        <div className="space-y-6 border-x border-gray-200 px-10">
-          <InfoRow label="کد ملی مالک پلاک انتقالی" value="۴۵۳۰۰۷۶۵۸۹" />
+        <div className="space-y-6 border-r border-gray-200 px-8">
+          <InfoRow label="کد ملی مالک پلاک انتقالی" value={data?.nationalId} />
 
-          <InfoRow label="تخفیف ثالث بیمه‌نامه قبلی" value="۵۰ درصد" />
+          <InfoRow
+            label="تخفیف ثالث بیمه‌نامه قبلی"
+            value={`${data?.previousThirdPartyDiscount} درصد`}
+          />
 
-          <InfoRow label="تخفیف حوادث راننده بیمه‌نامه قبلی" value="۵۰ درصد" />
+          <InfoRow
+            label="تخفیف حوادث راننده بیمه‌نامه قبلی"
+            value={`${data?.driverAccidentDiscount} درصد`}
+          />
         </div>
       </div>
     </SectionCard>
-  );
-}
-
-interface InfoRowProps {
-  label: string;
-  value: string;
-}
-
-function InfoRow({ label, value }: InfoRowProps) {
-  return (
-    <div className="flex items-center justify-between gap-3">
-      <span className="text-gray-500">{label}</span>
-
-      <span className="font-semibold text-gray-800">{value}</span>
-    </div>
   );
 }
 
