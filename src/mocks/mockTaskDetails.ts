@@ -5,17 +5,27 @@ export const mockTaskDetails: TaskDetailsMap = {
     insuranceInfo: {
       ownershipChanged: true,
       hasDiscountTransfer: true,
-      plateNumber: "۵۵۵ الف ۵۵ ایران ۵۵",
+
+      plateNumber: {
+        firstPart: "۵۵۵",
+        letter: "الف",
+        secondPart: "۵۵",
+        cityCode: "۵۵",
+      },
+
       nationalId: "۴۵۳۰۰۷۶۵۸۹",
+
       previousThirdPartyDiscount: 50,
+
       driverAccidentDiscount: 50,
     },
+
     images: {
       main: "/images/car-card.png",
+
       gallery: [
         "/images/insurance-card.png",
         "/images/insurance-card.png",
-     
       ],
     },
   },
@@ -23,51 +33,86 @@ export const mockTaskDetails: TaskDetailsMap = {
   20530001: {
     insuranceInfo: {
       ownershipChanged: false,
+
       hasDiscountTransfer: false,
-      plateNumber: "۲۲۲ ب ۲۲ ایران ۲۲",
+
+      plateNumber: {
+        firstPart: "۲۲۲",
+        letter: "ب",
+        secondPart: "۲۲",
+        cityCode: "۲۲",
+      },
+
       nationalId: "۶۱۲۰۰۳۴۵۹۱",
+
       previousThirdPartyDiscount: 30,
+
       driverAccidentDiscount: 10,
     },
+
     images: {
       main: "/images/car-card.png",
+
       gallery: [
         "/images/insurance-card.png",
-         "/images/insurance-card.png", 
-         "/images/insurance-card.png",
-         "/images/insurance-card.png",
-         "/images/insurance-card.png"],
+        "/images/insurance-card.png",
+        "/images/insurance-card.png",
+        "/images/insurance-card.png",
+        "/images/insurance-card.png",
+      ],
     },
   },
 
   20530002: {
     insuranceInfo: {
       ownershipChanged: true,
+
       hasDiscountTransfer: false,
-      plateNumber: "۷۷۷ ج ۷۷ ایران ۷۷",
+
+      plateNumber: {
+        firstPart: "۷۷۷",
+        letter: "ج",
+        secondPart: "۷۷",
+        cityCode: "۷۷",
+      },
+
       nationalId: "۵۱۰۰۰۷۸۹۳۲",
+
       previousThirdPartyDiscount: 70,
+
       driverAccidentDiscount: 20,
     },
+
     images: {
       main: "/images/car-card.png",
-      gallery: [
-        "/images/insurance-card.png",
-      ],
+
+      gallery: ["/images/insurance-card.png"],
     },
   },
 
   20530003: {
     insuranceInfo: {
       ownershipChanged: false,
+
       hasDiscountTransfer: true,
-      plateNumber: "۹۹۹ د ۹۹ ایران ۹۹",
+
+      plateNumber: {
+        firstPart: "۹۹۹",
+        letter: "د",
+        secondPart: "۹۹",
+        cityCode: "۹۹",
+      },
+
       nationalId: "۴۰۱۰۰۵۶۷۸۹",
+
       previousThirdPartyDiscount: 40,
+
       driverAccidentDiscount: 15,
     },
+
     images: {
       main: "/images/car-card.png",
+
       gallery: [
         "/images/insurance-card.png",
         "/images/insurance-card.png",

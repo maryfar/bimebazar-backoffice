@@ -1,6 +1,7 @@
 import InfoRow from "@/components/shared/info-row";
 import SectionCard from "@/components/shared/section-card";
 import type { InsuranceInfo } from "@/types/task-detail.types";
+import CarPlate from "../car-plate";
 
 interface Props {
   data: InsuranceInfo;
@@ -16,13 +17,15 @@ function InsuranceInfoCard({ data }: Props) {
             (تعویض پلاک)"
             value={data?.ownershipChanged ? "تغییر مالکیت داشته است" : "ندارد"}
           />
-
           <InfoRow
             label="انتقال تخفیفات دارد؟"
             value={data?.hasDiscountTransfer ? "دارد" : "ندارد"}
           />
+          <div className="flex items-center justify-between gap-3">
+            <span className="text-gray-500">شماره پلاک</span>
 
-          <InfoRow label="شماره پلاک" value={data?.plateNumber} />
+            <CarPlate plate={data.plateNumber} />
+          </div>{" "}
         </div>
 
         <div className="space-y-6 border-r border-gray-200 px-8">
