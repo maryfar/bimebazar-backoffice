@@ -6,49 +6,31 @@ interface Props {
 
 function CarPlate({ plate }: Props) {
   return (
-    <div
-      className="
-        inline-flex overflow-hidden rounded-xl
-        border border-gray-300 bg-white
-      "
-    >
-      <div
-        className="
-          flex items-center 
-           text-lg font-bold
-        "
-      >
-        <div className="flex flex-col items-center border-l border-gray-300 p-2 gap-1 ">
+    <div className="inline-flex overflow-hidden w-52 rounded-xl border border-gray-300 bg-white">
+      <div className="w-full flex items-center justify-center">
+        <div className="flex flex-col items-center border-l border-gray-300 px-2 py-1 gap-1 ">
           <span className="text-[7.33px] font-normal">ایران</span>
-          <span className="text-xs font-normal rounded-md bg-gray-100 flex items-center p-1">
-            {plate.cityCode}
+          <span className="text-xs font-normal rounded-sm bg-gray-100 flex items-center px-2 py-1">
+            {plate?.cityCode}
           </span>
         </div>
-        <div className="flex  items-center p-2 gap-2">
-          <span className="text-xs font-normal rounded-md bg-gray-100 flex items-center p-1">
-            {plate.firstPart}
+        <div className="flex  items-center justify-between w-full px-2 gap-2">
+          <span className="text-xs font-normal rounded-sm bg-gray-100 flex items-center px-2 py-1">
+            {plate?.firstPart}
           </span>
 
-          <span className="text-xs font-normal rounded-md bg-gray-100 flex items-center p-1">
-            {plate.letter}
+          <span className="text-xs font-normal rounded-sm bg-gray-100 flex items-center px-2 py-1">
+            {plate?.letter}
           </span>
 
-          <span className="text-xs font-normal rounded-md bg-gray-100 flex items-center p-1">
-            {plate.secondPart}
+          <span className="text-xs font-normal rounded-sm bg-gray-100 flex items-center px-2 py-1">
+            {plate?.secondPart}
           </span>
         </div>
-      </div>
-      <div
-        className="
-          flex  w-6 flex-col items-center gap-2
-          justify-center bg-gray-100
-        "
-      >
-        <img src={Element} alt="iran" />
-
-        <span className=" text-[7px] text-gray-400 w-3 wrap-normal ">
-          I.R. IRAN
-        </span>
+        <div className="flex  flex-col items-center justify-center gap-1 px-2 py-1 bg-gray-100 rounded-md">
+          <img src={Element} alt="iran" />
+          <span className=" text-[7px] text-gray-400 ">I.R. IRAN</span>
+        </div>
       </div>
     </div>
   );

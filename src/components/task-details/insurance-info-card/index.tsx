@@ -11,7 +11,7 @@ function InsuranceInfoCard({ data }: Props) {
   return (
     <SectionCard title="تخفیف بیمه‌نامه قبلی">
       <div className="grid grid-cols-2 gap-10 text-sm">
-        <div className="space-y-6">
+        <div className="space-y-4">
           <InfoRow
             label="تغییر مالکیت داشته است؟
             (تعویض پلاک)"
@@ -21,8 +21,10 @@ function InsuranceInfoCard({ data }: Props) {
             label="انتقال تخفیفات دارد؟"
             value={data?.hasDiscountTransfer ? "دارد" : "ندارد"}
           />
-          <div className="flex items-center justify-between gap-3">
-            <span className="text-gray-500">شماره پلاک</span>
+          <div className="flex items-center justify-between ">
+            <span className="text-gray-500 text-xs font-normal  leading-5">
+              شماره پلاک
+            </span>
 
             <CarPlate plate={data.plateNumber} />
           </div>{" "}
