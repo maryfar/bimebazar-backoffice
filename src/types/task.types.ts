@@ -10,7 +10,7 @@ export type Task = {
   assignedTo: {
     id: number;
     name: string;  
-    avatar: string;
+    avatar?: string;
   };
   status: TaskStatus;
   subStatus: string;

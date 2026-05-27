@@ -44,7 +44,7 @@ export const mockTasks: Task[] = [
     assignedTo: {
     id: 1,
     name: "پویا احمدی",
-    avatar: "/images/Avatar.svg"
+    avatar: ""
   },
   
     status: "باز",

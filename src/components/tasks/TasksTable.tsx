@@ -9,6 +9,7 @@ import type { SortDirection, TasksTableProps } from "@/types/task.types";
 import { TASK_STATUS_STYLES } from "@/constants/task-status";
 import SortIcon from "../icons/sort-icon";
 import { formatSmartDate } from "@/utils/formatRelativeDate";
+import Avatar from "@/assets/images/Avatar.svg";
 
 function TasksTable({
   data,
@@ -150,7 +151,9 @@ function TasksTable({
 
                   <td className="whitespace-nowrap px-6 py-4 text-xs font-normal text-gray-700 flex items-center gap-2">
                     <img
-                      src={task.assignedTo.avatar}
+                      src={
+                        task.assignedTo.avatar ? task.assignedTo.avatar : Avatar
+                      }
                       alt="avatar"
                       className="w-10 h-10 rounded-lg"
                     />
