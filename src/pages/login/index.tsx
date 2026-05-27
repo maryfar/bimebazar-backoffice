@@ -41,14 +41,14 @@ function LoginPage() {
   return (
     <div className="flex items-center justify-center mt-20 ">
       <div className="w-105 rounded-xl  bg-white p-5 shadow-gray-400">
-        <h1 className="mb-4 font-bold">ورود به پنل</h1>
+        <h1 className="mb-4 font-bold text-[16px]">ورود به پنل</h1>
 
         <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
           <div>
             <input
               {...register("mobile")}
               placeholder="شماره موبایل"
-              className={`w-full rounded-lg border p-2  text-sm ${
+              className={`w-full rounded-lg border border-gray-400 p-2  text-xs ${
                 !errors.mobile ? "mb-2" : "border-red-500 focus:outline-none"
               } `}
             />
@@ -65,7 +65,7 @@ function LoginPage() {
               type="password"
               {...register("password")}
               placeholder="رمز عبور"
-              className={`w-full rounded-lg border p-2  text-sm ${
+              className={`w-full rounded-lg border  border-gray-400 p-2  text-xs ${
                 !errors.password ? "mb-2" : "border-red-500 focus:outline-none"
               } `}
             />
@@ -79,10 +79,10 @@ function LoginPage() {
 
           {error && <p className="text-xs text-red-500 ">{error}</p>}
 
-          <div className="flex items-end justify-end border-t border-gray-400 pt-3">
+          <div className="flex items-end justify-end border-t border-gray-300 pt-3">
             <button
               type="submit"
-              className=" rounded-xl shadow-gray-200 bg-gray-700 p-2 text-sm text-white px-4 self-end  shadow-2xl"
+              className=" rounded-xl shadow-gray-200 bg-gray-700 p-2 text-[11px] cursor-pointer font-semibold text-white px-4 shadow-2xl"
             >
               ورود
             </button>

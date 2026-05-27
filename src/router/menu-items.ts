@@ -10,16 +10,14 @@ export interface MenuItem {
   path: string
   icon: string
   roles: Role[]
-  disable: boolean
 }
 
 export const MENU_ITEMS: MenuItem[] = [
   {
     label: 'خانه',
-    path: '/',
+    path: '/home',
     icon: Home,
     roles: ['admin', 'user'],
-    disable: false
   },
 
   {
@@ -27,7 +25,6 @@ export const MENU_ITEMS: MenuItem[] = [
     path: '/tasks',
     icon: Task,
     roles: ['admin', 'user'],
-    disable: true
   },
 
   {
@@ -35,7 +32,6 @@ export const MENU_ITEMS: MenuItem[] = [
     path: '/orders',
     icon: Order,
     roles: ['admin'],
-     disable: false
   },
 
   {
@@ -43,6 +39,5 @@ export const MENU_ITEMS: MenuItem[] = [
     path: '/customers',
     icon: User,
     roles: ['admin'],
-     disable: false
   },
 ]

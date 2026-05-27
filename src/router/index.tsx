@@ -9,6 +9,7 @@ import DashboardLayout from "@/layouts/dashboard-layout";
 import LoginPage from "@/pages/login";
 import TasksPage from "@/pages/tasks";
 import TaskDetailsPage from "@/pages/task-details";
+import ComingSoonPage from "@/pages/coming-soon";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,19 @@ export const router = createBrowserRouter([
       {
         element: <DashboardLayout />,
         children: [
+          {
+            path: "/home",
+            element: <ComingSoonPage title="خانه" />,
+          },
+          {
+            path: "/orders",
+            element: <ComingSoonPage title="سفارشات" />,
+          },
+
+          {
+            path: "/customers",
+            element: <ComingSoonPage title="مشتریان" />,
+          },
           {
             path: "/tasks/:id",
             element: <TaskDetailsPage />,

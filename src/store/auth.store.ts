@@ -2,7 +2,8 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 import { USERS } from '@/mocks/users'
-import { User } from '@/types/auth'
+import type { User } from '@/types/auth'
+
 
 interface LoginData {
     mobile: string
