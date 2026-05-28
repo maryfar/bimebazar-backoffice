@@ -1,15 +1,21 @@
 @import "tailwindcss";
-@import './fonts.css';
+@import "./fonts.css";
 
+@layer base {
+  html,
+  body {
+    font-family: "Vazirmatn FD", sans-serif !important;
+  }
+
+  body {
+    direction: rtl;
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    background: #f5f6fa;
+  }
+}
 
 * {
   box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  font-family: sans-serif;
-  background: #f5f6fa;
 }
