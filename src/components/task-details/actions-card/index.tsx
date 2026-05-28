@@ -2,7 +2,7 @@ import Button from "@/components/ui/Button";
 
 function ActionsCard() {
   return (
-    <div className="w-96 rounded-xl  bg-white p-5 shadow-sm">
+    <div className="w-full lg:w-96 rounded-xl  bg-white p-5 shadow-sm">
       <h1 className="mb-4 font-bold text-[16px]">اقدامات</h1>
 
       <form className="space-y-3">

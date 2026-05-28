@@ -9,20 +9,24 @@ function Sidebar() {
   const user = useAuthStore((state) => state.user);
 
   const allowedItems = MENU_ITEMS.filter((item) =>
-    item.roles.includes(user!.role)
+    item.roles.includes(user!.role),
   );
 
   return (
-    <aside className="w-64 h-screen bg-[#EBEBEB]  p-3">
+    <aside className="w-32 md:w-64 min-h-screen bg-[#EBEBEB]  p-3">
       <nav className="space-y-1">
         {allowedItems.map((item) => {
           return (
-            <NavLink key={item.path} to={item.path}>
+            <NavLink
+              key={item.path}
+              to={item.path}
+              className="outline-none focus:outline-none focus:ring-0"
+            >
               {({ isActive }) => (
                 <div
                   className={clsx(
                     "flex items-center gap-4 rounded-xl py-3 px-4",
-                    isActive ? "bg-gray-100 cursor-pointer" : "text-gray-700"
+                    isActive ? "bg-gray-100 cursor-pointer" : "text-gray-700",
                   )}
                 >
                   <img src={item.icon} alt={item.label} className="h-5 w-5" />
@@ -32,7 +36,7 @@ function Sidebar() {
                       "text-xs",
                       isActive
                         ? "font-bold text-gray-900"
-                        : "font-semibold text-gray-800"
+                        : "font-semibold text-gray-800",
                     )}
                   >
                     {item.label}

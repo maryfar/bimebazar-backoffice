@@ -46,9 +46,9 @@ function TasksTable({
   };
 
   return (
-    <div className="mx-auto w-full max-w-6xl rounded-tl-2xl rounded-tr-2xl border border-gray-300 bg-white ">
-      <div className="flex items-center justify-between gap-3 p-4">
-        <div className="flex gap-3 text-sm">
+    <div className="mx-auto w-full max-w-6xl rounded-tl-2xl rounded-tr-2xl border border-gray-300 bg-white overflow-hidden ">
+      <div className="flex  items-center justify-between gap-3 p-4 overflow-hidden">
+        <div className="flex flex-col md:flex-row gap-3 text-sm">
           {readyToAssigned !== undefined && (
             <div className="flex items-center gap-2">
               <span className="text-[13px] font-semibold">آماده ارجاع</span>

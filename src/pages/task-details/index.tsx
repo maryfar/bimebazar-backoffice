@@ -32,7 +32,7 @@ function TaskDetailsPage() {
     <div className="space-y-6 py-8 px-3">
       <TaskHeader task={task} />
 
-      <div className="grid grid-cols-12 gap-4">
+      <div className="lg:grid lg:grid-cols-12 gap-4 flex flex-col-reverse">
         <div className="col-span-8">
           <InsuranceInfoCard data={taskDetail.insuranceInfo} />
 
