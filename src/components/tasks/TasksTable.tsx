@@ -10,10 +10,12 @@ import { TASK_STATUS_STYLES } from "@/constants/task-status";
 import SortIcon from "../icons/sort-icon";
 import { formatSmartDate } from "@/utils/formatRelativeDate";
 import Avatar from "@/assets/images/Avatar.svg";
+import { formatNumber } from "@/utils/formatNumber";
 
 function TasksTable({
   data,
   totalAssigned,
+  myTasksCount,
   readyToAssigned,
   onRowClick,
 }: TasksTableProps) {
@@ -52,7 +54,7 @@ function TasksTable({
               <span className="text-[13px] font-semibold">آماده ارجاع</span>
 
               <span className="rounded-2xl bg-gray-200 px-3 py-1 text-[11px] font-semibold">
-                +{readyToAssigned}
+                {formatNumber(readyToAssigned)}
               </span>
             </div>
           )}
@@ -71,7 +73,7 @@ function TasksTable({
             <span className="text-[13px] font-semibold">وظیفه‌های من</span>
 
             <span className="rounded-2xl bg-gray-200 px-3 py-1 text-[11px] font-semibold">
-              {data.length}
+              {myTasksCount}
             </span>
           </div>
         </div>

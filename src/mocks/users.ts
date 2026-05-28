@@ -1,5 +1,5 @@
-import type { User } from "@/types/auth.types";
 
+import type { User } from "@/types/auth.types";
 
 export const USERS: User[] = [
     {
@@ -7,14 +7,15 @@ export const USERS: User[] = [
         mobile: '09120000001',
         password: '123456',
         role: 'admin',
-        name: 'Admin User',
+        name: 'مهرداد رضایی',
+        avatar: '/images/portrait06.svg',
     },
-
     {
         id: 2,
         mobile: '09120000002',
         password: '123456',
         role: 'user',
-        name: 'Normal User',
+        name: 'مریم فرهادی',
+        avatar: '/images/portrait02.svg',
     },
-]
+];

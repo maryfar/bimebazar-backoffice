@@ -23,6 +23,7 @@ export interface TasksTableProps {
   data: Task[];
   totalAssigned?: number;
   readyToAssigned?: number;
+  myTasksCount?: number;
   title?: string;
   onRowClick?: (task: Task) => void;
 }
