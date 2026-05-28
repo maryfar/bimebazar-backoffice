@@ -1,74 +1,60 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# پروژه بک‌آفیس بیمه‌بازار
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+##  نصب و راه‌اندازی
 
-## React Compiler
+cd bimebazar-backoffice
+npm install
+npm run dev
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## 👥 کاربران تست
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+برای ورود به سیستم می‌توانید از اطلاعات زیر استفاده کنید:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| **ادمین** | `09120000001` | `123456` | مهرداد رضایی |
+| **کاربر عادی** | `09120000002` | `123456` | مریم فرهادی |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## فناوری‌ها
+
+Vite + React + TypeScript
+
+React Router DOM v6
+
+Zustand
+
+Tailwind CSS
+
+React Hook Form + Zod
+
+
+## ساختار پروژه
+
+```
+src/
+├── assets/          # تصاویر و فایل‌های استاتیک
+├── components/      # کامپوننت‌های قابل استفاده مجدد
+│   ├── guards/      # گاردهای مسیر (ProtectedRoute, RoleGuard)
+│   ├── icons/       # آیکون‌های SVG
+│   ├── tasks/       # کامپوننت‌های مربوط به تسک
+│   └── ui/          # کامپوننت‌های UI
+├── constants/       # ثابت‌های برنامه
+├── layouts/         # چیدمان‌های اصلی (AuthLayout, DashboardLayout)
+├── mocks/           # دیتاهای mock برای توسعه
+├── pages/           # صفحات برنامه
+│   ├── login/       # صفحه ورود
+│   ├── tasks/       # صفحه لیست وظیفه‌ها
+│   └── task-details/# صفحه جزئیات وظیفه
+├── router/          # کانفیگ مسیرها
+├── store/           # مدیریت state (Zustand)
+├── types/           # تعاریف TypeScript
+└── utils/           # توابع کمکی
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-# bimebazar-backoffice
+
+
+
