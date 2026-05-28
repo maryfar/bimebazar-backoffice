@@ -8,6 +8,7 @@ import { useAuthStore } from "@/store/auth.store";
 
 import { loginSchema, type LoginFormData } from "./schema";
 import { DEFAULT_ROUTE_BY_ROLE } from "@/router/default-routes";
+import Button from "@/components/ui/Button";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -91,13 +92,9 @@ function LoginPage() {
           {error && <p className="text-xs text-red-500 ">{error}</p>}
 
           <div className="flex items-end justify-end border-t border-gray-300 pt-3">
-            <button
-              type="submit"
-              disabled={isLoading}
-              className=" rounded-xl shadow-gray-200 bg-gray-700 p-2 text-[11px] cursor-pointer font-semibold text-white px-4 shadow-2xl"
-            >
-              {isLoading ? "در حال ورود..." : "ورود"}{" "}
-            </button>
+            <Button size="sm" type="submit" disabled={isLoading}>
+              ورود
+            </Button>
           </div>
         </form>
       </div>

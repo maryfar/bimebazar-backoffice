@@ -1,3 +1,5 @@
+import Button from "@/components/ui/Button";
+
 function ActionsCard() {
   return (
     <div className="w-96 rounded-xl  bg-white p-5 shadow-sm">
@@ -19,12 +21,9 @@ function ActionsCard() {
         </div>
 
         <div className="flex items-end justify-end border-t border-gray-300 pt-3">
-          <button
-            type="submit"
-            className=" rounded-xl shadow-gray-200 bg-gray-700 p-2 text-[11px] cursor-pointer font-semibold text-white px-4 shadow-2xl"
-          >
+          <Button size="sm" type="submit">
             ثبت نهایی
-          </button>
+          </Button>
         </div>
       </form>
     </div>
