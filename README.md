@@ -1,66 +1,90 @@
+# BimeBazar Backoffice
 
-# پروژه بک‌آفیس بیمه‌بازار
-
-## پیش‌نیازها
-
-- Node.js (نسخه 22.12.0 یا بالاتر)
-- npm یا yarn یا pnpm
+A back-office dashboard built with React, TypeScript, and Tailwind CSS.
 
 ---
 
-##  نصب و راه‌اندازی
+## Requirements
+
+* Node.js `v22.12.0` or higher
+* npm, yarn, or pnpm
+
+---
+
+## Installation & Setup
+
+```bash
+git clone <repository-url>
 
 cd bimebazar-backoffice
+
 npm install
+
 npm run dev
-
-
-## 👥 کاربران تست
-
-برای ورود به سیستم می‌توانید از اطلاعات زیر استفاده کنید:
-
-| **ادمین** | `09120000001` | `123456` | مهرداد رضایی |
-| **کاربر عادی** | `09120000002` | `123456` | مریم فرهادی |
-
-
-## فناوری‌ها
-
-Vite + React + TypeScript
-
-React Router DOM v6
-
-Zustand
-
-Tailwind CSS
-
-React Hook Form + Zod
-
-
-## ساختار پروژه
-
 ```
+
+---
+
+## Test Accounts
+
+| Role  | Phone Number  | Password | Name           |
+| ----- | ------------- | -------- | -------------- |
+| Admin | `09120000001` | `123456` | Mehrdad Rezaei |
+| User  | `09120000002` | `123456` | Maryam Farhadi |
+
+---
+
+## Tech Stack
+
+* Vite
+* React
+* TypeScript
+* React Router DOM v6
+* Zustand
+* Tailwind CSS
+* React Hook Form
+* Zod
+
+---
+
+## Project Structure
+
+```bash
 src/
-├── assets/          # تصاویر و فایل‌های استاتیک
-├── components/      # کامپوننت‌های قابل استفاده مجدد
-│   ├── guards/      # گاردهای مسیر (ProtectedRoute, RoleGuard)
-│   ├── icons/       # آیکون‌های SVG
-│   ├── tasks/       # کامپوننت‌های مربوط به تسک
-│   └── ui/          # کامپوننت‌های UI
-├── constants/       # ثابت‌های برنامه
-├── layouts/         # چیدمان‌های اصلی (AuthLayout, DashboardLayout)
-├── mocks/           # دیتاهای mock برای توسعه
-├── pages/           # صفحات برنامه
-│   ├── login/       # صفحه ورود
-│   ├── tasks/       # صفحه لیست وظیفه‌ها
-│   └── task-details/# صفحه جزئیات وظیفه
-├── router/          # کانفیگ مسیرها
-├── store/           # مدیریت state (Zustand)
-├── types/           # تعاریف TypeScript
-└── utils/           # توابع کمکی
+├── assets/          # Static assets and images
+├── components/      # Reusable components
+│   ├── guards/      # Route guards (ProtectedRoute, RoleGuard)
+│   ├── icons/       # SVG icons
+│   ├── tasks/       # Task-related components
+│   └── ui/          # Shared UI components
+├── constants/       # Application constants
+├── layouts/         # Main layouts (AuthLayout, DashboardLayout)
+├── mocks/           # Mock data for development
+├── pages/           # Application pages
+│   ├── login/       # Login page
+│   ├── tasks/       # Tasks list page
+│   └── task-details/# Task details page
+├── router/          # Routing configuration
+├── store/           # Zustand stores
+├── types/           # TypeScript types
+└── utils/           # Utility/helper functions
 ```
 
+---
 
+## Features
 
+* Authentication & role-based access
+* Task management UI
+* Protected routes
+* Form validation with Zod
+* Global state management with Zustand
 
+---
 
+## Scripts
 
+```bash
+npm run dev       # Start development server
+
+```
